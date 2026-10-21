@@ -1,0 +1,186 @@
+/* ============================================================
+   راهنمای مسیرهای حرفه‌ای پس از فیزیک شریف — house-style CSS
+   Route: WeasyPrint 68 (HTML dir=rtl lang=fa-IR)
+   Persian: Vazirmatn — Latin: TeX Gyre Termes — Icons: FA6 Solid
+   ============================================================ */
+
+/* ---------- fonts ---------- */
+@font-face { font-family: "Vazirmatn"; src: url("fonts/vazirmatn/Vazirmatn-Regular.ttf"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Vazirmatn"; src: url("fonts/vazirmatn/Vazirmatn-Medium.ttf"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "Vazirmatn"; src: url("fonts/vazirmatn/Vazirmatn-Bold.ttf"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Vazirmatn"; src: url("fonts/vazirmatn/Vazirmatn-ExtraBold.ttf"); font-weight: 800; font-style: normal; }
+@font-face { font-family: "Termes"; src: url("fonts/texgyretermes-regular.otf"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Termes"; src: url("fonts/texgyretermes-italic.otf"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Termes"; src: url("fonts/texgyretermes-bold.otf"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Termes"; src: url("fonts/texgyretermes-bolditalic.otf"); font-weight: 700; font-style: italic; }
+@font-face { font-family: "FA6S"; src: url("fonts/fa-solid.otf"); font-weight: 400; font-style: normal; }
+
+/* ---------- counters ---------- */
+@counter-style fa-digits { system: numeric; symbols: "۰" "۱" "۲" "۳" "۴" "۵" "۶" "۷" "۸" "۹"; }
+@counter-style fa-letters { system: symbolic; symbols: "الف" "ب" "پ" "ت" "ث" "ج" "چ" "ح" "خ" "د" "ذ" "ر" "ز" "ژ" "س" "ش"; }
+
+/* ---------- page masters ---------- */
+@page {
+  size: A4;
+  margin: 2.3cm 2.2cm 2.4cm 2.2cm;
+  @top-right {
+    content: none;
+  }
+  @bottom-center { content: none; } /* page numbers are stamped post-render */
+}
+@page main {
+  @top-right {
+    content: string(chap, first-except);
+    font-family: "Vazirmatn";
+    font-size: 9pt;
+    color: #3a3f45;
+    border-bottom: 0.55pt solid #9aa5b1;
+    padding: 0 0 3pt 0;
+    margin-bottom: 10pt;
+    vertical-align: bottom;
+  }
+}
+@page land {
+  size: A4 landscape;
+  margin: 1.7cm 1.8cm 2.2cm 1.8cm;
+  @top-right {
+    content: string(chap, first-except);
+    font-family: "Vazirmatn";
+    font-size: 9pt;
+    color: #3a3f45;
+    border-bottom: 0.55pt solid #9aa5b1;
+    padding: 0 0 3pt 0;
+    margin-bottom: 10pt;
+    vertical-align: bottom;
+  }
+}
+
+/* ---------- base ---------- */
+html { font-size: 11.5pt; }
+body {
+  font-family: "Vazirmatn", "DejaVu Sans", sans-serif;
+  font-size: 11.5pt;
+  line-height: 1.56;
+  color: #212529;
+  text-align: justify;
+  margin: 0;
+}
+p { margin: 0 0 .55em; orphans: 2; widows: 2; }
+strong, b { color: #17456e; font-weight: 700; }
+a { color: #1a4b8c; text-decoration: none; }
+em { font-family: "Termes", "Vazirmatn", serif; font-style: italic; }
+.lt { font-family: "Termes", "Vazirmatn", serif; direction: ltr; }
+.fa { font-family: "FA6S"; font-style: normal; font-size: .88em; }
+.ic-check::before { content: "\f00c"; color: #2e7d43; }
+.ic-warn::before { content: "\f071"; color: #b26b00; }
+h1, h2, h3 { break-after: avoid; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; text-align: center; padding-top: 2.5cm; }
+.cover .logo { width: 4.3cm; margin-bottom: 12pt; }
+.assoc { font-size: 12pt; font-weight: 700; color: #17456e; margin-bottom: 40pt; }
+.cover-title { font-size: 25pt; font-weight: 800; color: #14181d; line-height: 1.55; margin: 0 0 12pt; text-align: center; bookmark-level: none; }
+.cover-sub { font-size: 13.5pt; color: #343a40; line-height: 1.8; margin-bottom: 52pt; }
+.cover-ver { font-size: 12pt; font-weight: 700; color: #17456e; margin-bottom: 10pt; }
+.cover-date { font-size: 11.5pt; }
+.cover-en { font-size: 9.5pt; color: #6c757d; font-family: "Termes", serif; margin-top: 3pt; }
+
+/* ---------- credits ---------- */
+.credits { page: plain; text-align: center; padding-top: 2.1cm; }
+.credits .logo-s { width: 3.05cm; }
+.cr-assoc { font-size: 15pt; font-weight: 800; color: #17456e; margin: 12pt 0 34pt; }
+.cr-thanks { font-size: 12.5pt; font-weight: 700; margin-bottom: 16pt; }
+.cr-name { font-size: 12pt; margin-bottom: 12.5pt; }
+.cr-note { font-size: 10.5pt; color: #495057; margin: 30pt auto 10pt; max-width: 12.6cm; line-height: 1.75; text-align: center; }
+.cr-channel { font-size: 11pt; color: #1a4b8c; font-weight: 700; }
+
+/* ---------- front matter ---------- */
+.fm-title { font-size: 19pt; font-weight: 800; color: #17456e; text-align: right; margin: 0 0 .75em; }
+.preface { page: front; break-before: page; }
+.preface .fm-title { bookmark-level: 1; bookmark-label: attr(data-bm); }
+.pref-lead { margin-bottom: 1em; }
+
+/* ---------- TOC / LOT ---------- */
+.toc, .lot { page: front; break-before: page; }
+.toc .fm-title, .lot .fm-title { bookmark-level: 1; bookmark-label: attr(data-bm); }
+.toc-list { margin-top: .4em; }
+a.toc-l1, a.toc-l2 { display: flex; align-items: baseline; color: #17456e; }
+a.toc-l1 { font-weight: 700; font-size: 11.5pt; margin: 0 0 .42em; justify-content: space-between; }
+a.toc-l2 { font-size: 11pt; margin: 0 0 .38em; padding-right: 1.15em; }
+a.toc-l1 .n { font-weight: 800; }
+a.toc-l2 .n { font-weight: 700; }
+a.toc-l2 .dots { flex: 1 1 auto; border-bottom: 1pt dotted #7e93b8; margin: 0 7pt 3.2pt; align-self: flex-end; }
+a.toc-l1 .t, a.toc-l2 .t { flex: 0 0 auto; max-width: 15.2cm; }
+
+/* ---------- chapters ---------- */
+.chapter { page: main; break-before: page; }
+.chap-open { margin-top: 2.8cm; margin-bottom: 1.15em; }
+.chap-num { font-size: 19pt; font-weight: 800; color: #17456e; margin-bottom: 1pt; }
+h1.chap-title { font-size: 19pt; font-weight: 800; color: #17456e; line-height: 1.42; margin: 0; }
+h1.chap-title { bookmark-level: 1; bookmark-label: attr(data-bm); }
+h2.sec, h2.appxs {
+  font-size: 13.5pt; font-weight: 700; color: #17456e;
+  margin: 1.15em 0 .5em; line-height: 1.5;
+  bookmark-level: 2; bookmark-label: attr(data-bm);
+}
+h2.sec .sn, h2.appxs .sn { margin-left: .45em; }
+
+/* ---------- lists ---------- */
+ul { margin: 0 0 .55em; padding-right: 1.55em; }
+li { margin-bottom: .3em; text-align: right; }
+.oli { padding-right: 1.7em; text-indent: -1.7em; margin-bottom: .5em; text-align: right; }
+.olin { font-weight: 700; color: #17456e; }
+
+/* ---------- callout boxes (house tcolorbox) ---------- */
+.box { margin: 10pt 0 11pt; border-radius: 8pt; }
+.box .bar { color: #fff; font-weight: 700; padding: 3.5pt 12pt 5pt; font-size: 11pt; text-align: right; border-radius: 7.4pt 7.4pt 0 0; break-after: avoid; }
+.box .bd { padding: 6.5pt 11pt 7pt; border-radius: 0 0 7.4pt 7.4pt; }
+.box .bd > p:last-child { margin-bottom: 0; }
+.box-blue   { border: .7pt solid #b9c8e8; }
+.box-blue .bar { background: #1f4e96; }
+.box-blue .bd  { background: #eef1fb; }
+.box-orange { border: .7pt solid #e3c9a8; }
+.box-orange .bar { background: #a0641e; }
+.box-orange .bd { background: #fbf3e6; }
+.box-green  { border: .7pt solid #bfdcc6; }
+.box-green .bar { background: #2e7d43; }
+.box-green .bd  { background: #eaf5ed; }
+
+/* ---------- myth / reality pairs ---------- */
+.myth { margin: 9pt 0 10pt; border-radius: 8pt; break-inside: avoid; }
+.myth-m { background: #fcecec; border: .7pt solid #ecc7c7; border-bottom: none; border-radius: 7.4pt 7.4pt 0 0; padding: 6pt 11pt 6.5pt; }
+.myth-r { background: #eaf5ed; border: .7pt solid #c4dfcb; border-top: none; border-radius: 0 0 7.4pt 7.4pt; padding: 6pt 11pt 7pt; }
+.myth p { margin: 0; }
+.mlabel, .rlabel { display: inline-block; font-size: 8.5pt; font-weight: 700; color: #fff; border-radius: 3pt; padding: .5pt 8pt 1.5pt; margin-left: 6pt; }
+.mlabel { background: #b04a4a; }
+.rlabel { background: #2e7d43; }
+
+/* ---------- tables ---------- */
+.tcap { font-size: 10.5pt; font-weight: 700; color: #17456e; margin: 11pt 0 5pt; text-align: right; break-after: avoid; }
+table.tbl { border-collapse: collapse; width: 100%; }
+table.tbl thead { display: table-header-group; }
+table.tbl th {
+  background: #1f4e96; color: #fff; font-weight: 700;
+  padding: 4.5pt 6pt; border: .6pt solid #1f4e96;
+  text-align: right; font-size: .96em; line-height: 1.45;
+}
+table.tbl td {
+  border: .5pt solid #c4cfde; padding: 4pt 6pt;
+  vertical-align: top; text-align: right; line-height: 1.5;
+}
+table.tbl tbody tr:nth-child(even) td { background: #eff3fa; }
+table.tbl tr { break-inside: avoid; }
+.land { page: land; break-before: page; break-after: page; }
+.land .tcap { margin-top: 0; }
+
+/* ---------- appendix ---------- */
+.appx-list { font-size: 9pt; }
+.appx-group { font-weight: 700; color: #17456e; font-size: 9.5pt; margin: 8pt 0 3.5pt; }
+.appx-item {
+  font-size: 9pt; line-height: 1.46; margin: 0 0 2.8pt;
+  text-align: right; padding-right: 2.9em; text-indent: -2.9em;
+}
+.url { font-family: "Termes", "Vazirmatn", serif; font-size: .93em; word-break: break-all; direction: ltr; }
+
+/* ---------- ornament for horizontal rules ---------- */
+.orn { width: 22%; margin: 13pt auto; border-top: .8pt solid #b9c2ce; }

@@ -1,0 +1,19 @@
+# internal agent/process scratch — never public
+.superpowers/
+
+# superseded top-level files, left in place but not tracked
+/channel_post.md
+/راهنمای_مسیرهای_حرفهای_پس_از_فیزیک_شریف.pdf
+
+# now-empty husks left behind by the repo reorg
+/source/
+/docs/superpowers/
+
+# build scratch the pipeline sometimes leaves behind
+__pycache__/
+*.pyc
+_*.png
+_*.json
+_*.html
+!guide/guide.html
+!provenance/guide_v1_original.html

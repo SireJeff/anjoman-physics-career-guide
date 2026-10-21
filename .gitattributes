@@ -1,0 +1,16 @@
+# Force LF on the pipeline's text sources — a CRLF checkout changes byte
+# sizes for any future fingerprint/integrity check (lesson learned on a
+# sibling project: never trust core.autocrlf for Persian RTL HTML).
+*.html text eol=lf
+*.css text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# binary, never diff/convert
+*.pdf binary
+*.png binary
+*.ttf binary
+*.otf binary

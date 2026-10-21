@@ -1,0 +1,37 @@
+name: Build check
+
+on:
+  push:
+    paths: ["guide/**", "requirements.txt"]
+  pull_request:
+    paths: ["guide/**", "requirements.txt"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install system deps for WeasyPrint
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango-1.0-0 libpangocairo-1.0-0 libharfbuzz-subset0
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+      - name: Build the guide
+        run: |
+          cd guide
+          python refine.py
+          python build.py
+      - name: Verify output
+        run: |
+          python -c "
+          import fitz
+          d = fitz.open('dist/SUT_Physics_Career_Guide_v1.0.pdf')
+          land = [i + 1 for i, p in enumerate(d) if p.rect.width > p.rect.height]
+          assert not land, land
+          assert len(d) >= 40, len(d)
+          print('build-check OK:', len(d), 'pages, all portrait')
+          "

@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install system deps for WeasyPrint
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango-1.0-0 libpangocairo-1.0-0 libharfbuzz-subset0
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+      - name: Build the guide
+        run: |
+          cd guide
+          python refine.py
+          python build.py
+      - name: Attach PDF to the release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/SUT_Physics_Career_Guide_v1.0.pdf
+          generate_release_notes: true
