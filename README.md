@@ -48,6 +48,13 @@ python build.py    # -> ../dist/SUT_Physics_Career_Guide_v1.0.pdf
 Requires Python 3.11+. No system fonts needed (Vazirmatn, TeX Gyre Termes,
 and Font Awesome icons are bundled under `guide/fonts/`).
 
+WeasyPrint also needs Pango installed as a system library (pip alone won't
+get you there on Windows/macOS) — see
+https://doc.courtbouillon.org/weasyprint/stable/first_steps.html for
+platform-specific install steps. On Ubuntu/Debian:
+`sudo apt-get install libpango-1.0-0 libpangocairo-1.0-0 libharfbuzz-subset0`
+(exactly what CI does — see `.github/workflows/build-check.yml`).
+
 ## Contributing
 
 Most contributions are fact or number corrections — see

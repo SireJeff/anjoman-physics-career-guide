@@ -2,9 +2,9 @@ name: Build check
 
 on:
   push:
-    paths: ["guide/**", "requirements.txt"]
+    paths: ["guide/**", "requirements.txt", ".github/workflows/**"]
   pull_request:
-    paths: ["guide/**", "requirements.txt"]
+    paths: ["guide/**", "requirements.txt", ".github/workflows/**"]
 
 jobs:
   build:
@@ -23,7 +23,6 @@ jobs:
       - name: Build the guide
         run: |
           cd guide
-          python refine.py
           python build.py
       - name: Verify output
         run: |

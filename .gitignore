@@ -15,5 +15,4 @@ __pycache__/
 _*.png
 _*.json
 _*.html
-!guide/guide.html
-!provenance/guide_v1_original.html
+_*.pdf

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Local build: guide.html -> ../SUT_Physics_Career_Guide_v1.0.pdf
+"""Local build: guide.html -> ../dist/SUT_Physics_Career_Guide_v1.0.pdf
 
 Same scheme as finalize.py, but works straight from guide.html (no Markdown
 source needed) and stamps folios with PyMuPDF instead of pikepdf:

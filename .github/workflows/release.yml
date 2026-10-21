@@ -23,8 +23,17 @@ jobs:
       - name: Build the guide
         run: |
           cd guide
-          python refine.py
           python build.py
+      - name: Verify output
+        run: |
+          python -c "
+          import fitz
+          d = fitz.open('dist/SUT_Physics_Career_Guide_v1.0.pdf')
+          land = [i + 1 for i, p in enumerate(d) if p.rect.width > p.rect.height]
+          assert not land, land
+          assert len(d) >= 40, len(d)
+          print('release verify OK:', len(d), 'pages, all portrait')
+          "
       - name: Attach PDF to the release
         uses: softprops/action-gh-release@v2
         with:

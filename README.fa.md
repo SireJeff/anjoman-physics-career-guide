@@ -55,6 +55,14 @@ python build.py    # -> ../dist/SUT_Physics_Career_Guide_v1.0.pdf
 نیازمند Python 3.11+‎. نیازی به فونت سیستمی نیست (Vazirmatn، TeX Gyre
 Termes و آیکون‌های Font Awesome همگی در `guide/fonts/` بسته‌بندی شده‌اند).
 
+WeasyPrint همچنین به کتابخانهٔ سیستمی Pango نیاز دارد (نصب با pip به‌تنهایی
+در ویندوز/مک کافی نیست) — برای مراحل نصب مخصوص هر سیستم‌عامل به
+https://doc.courtbouillon.org/weasyprint/stable/first_steps.html مراجعه
+کنید. در اوبونتو/دبیان:
+`sudo apt-get install libpango-1.0-0 libpangocairo-1.0-0 libharfbuzz-subset0`
+(دقیقاً همان کاری که CI انجام می‌دهد — به `.github/workflows/build-check.yml`
+مراجعه کنید).
+
 ## مشارکت
 
 بیشتر مشارکت‌ها اصلاح یک واقعیت یا عدد است — به [CONTRIBUTING.md](CONTRIBUTING.md)

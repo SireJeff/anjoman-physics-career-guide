@@ -64,7 +64,7 @@ source research reports were resolved.
   6→4 columns), a ~98-edit natural-Persian line edit, cover bumped to
   نسخهٔ ۱٫۲. See `docs/design/2026-10-12-v1.2-portrait-natural-persian-design.md`.
 - **v1.1 (2026-10-09):** تبدیل تاریخ‌ها به شمسی، اعداد و ارز به فارسی/کلمه،
-  اصلاح شمارهٔ بخش‌ها (۸٫۲ به‌جای ۸٫۲ با ویرگول عربی).
+  اصلاح شمارهٔ بخش‌ها (۸.۲ به‌جای ۸٫۲ با ممیز عربی).
   / Dates converted to Shamsi, digits and currency to Persian-word form,
   section-numbering punctuation fixed.
 - **v1 (2026-10-09):** اولین نسخهٔ تولیدشده، از طریق خط لولهٔ مبتنی بر Markdown

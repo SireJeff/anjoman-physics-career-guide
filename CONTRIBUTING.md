@@ -17,7 +17,12 @@
 3. برای تغییرات بزرگ‌تر (یک فصل کامل، بازطراحی یک بخش)، به جای ویرایش مستقیم
    `guide.html`، یک تبدیل جدید و قطعی در `guide/refine.py` اضافه کنید —
    همان الگویی که نسخه‌های ۱٫۱ و ۱٫۲ از آن استفاده کردند (به `provenance/README.md`
-   مراجعه کنید). این الگو تضمین می‌کند تغییر از ابتدا تا انتها قابل‌ردیابی بماند.
+   مراجعه کنید). این الگو تضمین می‌کند تغییر از ابتدا تا انتها قابل‌ردیابی بماند
+    — **توجه:** اجرای `refine.py` همیشه `guide.html` را از نو، از روی
+`provenance/` و تبدیل‌های خودش، می‌سازد؛ اگر پیش از آن ویرایش مستقیمی روی
+`guide.html` انجام داده باشید، آن ویرایش از بین می‌رود. به همین دلیل CI این
+اسکریپت را دیگر اجرا نمی‌کند — اجرای `refine.py` کاملاً اختیاری و محلی است،
+فقط برای کسی که دارد یک تبدیل تازه اضافه می‌کند.
 
 ### بازساخت محلی
 
@@ -27,6 +32,15 @@ cd guide
 python refine.py   # فقط اگر refine.py را تغییر داده‌اید
 python build.py    # -> ../dist/SUT_Physics_Career_Guide_v1.0.pdf
 ```
+
+WeasyPrint همچنین به کتابخانهٔ سیستمی Pango نیاز دارد (نصب با pip به‌تنهایی
+در ویندوز/مک کافی نیست) — برای مراحل نصب مخصوص هر سیستم‌عامل به
+https://doc.courtbouillon.org/weasyprint/stable/first_steps.html مراجعه
+کنید. در اوبونتو/دبیان:
+`sudo apt-get install libpango-1.0-0 libpangocairo-1.0-0 libharfbuzz-subset0`
+(دقیقاً همان کاری که CI انجام می‌دهد — به `.github/workflows/build-check.yml`
+مراجعه کنید).
+
 پیش‌نیاز: Python 3.11+‎، هیچ فونتی از سیستم لازم نیست (همه در `guide/fonts/`
 بسته‌بندی شده‌اند).
 
@@ -59,7 +73,12 @@ code. Both paths:
 3. For larger changes (a whole chapter, a section redesign), add a new
    deterministic transform to `guide/refine.py` instead of hand-editing
    `guide.html` — the same pattern v1.1 and v1.2 used (see
-   `provenance/README.md`). This keeps the change traceable end to end.
+   `provenance/README.md`). This keeps the change traceable end to end
+    — **Note:** running `refine.py` always rebuilds `guide.html` from scratch,
+from `provenance/` plus its own transforms; any direct edit you made to
+`guide.html` beforehand is discarded. That's why CI no longer runs this
+script — running `refine.py` is entirely optional and local, only for
+someone adding a new transform.
 
 ### Local rebuild
 
@@ -69,6 +88,14 @@ cd guide
 python refine.py   # only if you changed refine.py
 python build.py    # -> ../dist/SUT_Physics_Career_Guide_v1.0.pdf
 ```
+
+WeasyPrint also needs Pango installed as a system library (pip alone won't
+get you there on Windows/macOS) — see
+https://doc.courtbouillon.org/weasyprint/stable/first_steps.html for
+platform-specific install steps. On Ubuntu/Debian:
+`sudo apt-get install libpango-1.0-0 libpangocairo-1.0-0 libharfbuzz-subset0`
+(exactly what CI does — see `.github/workflows/build-check.yml`).
+
 Requires Python 3.11+. No system fonts needed — everything is bundled
 under `guide/fonts/`.
 

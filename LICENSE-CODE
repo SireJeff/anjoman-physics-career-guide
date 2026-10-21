@@ -21,7 +21,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-This license covers the build pipeline only (*.py, style.css, and the
-.github/ workflows). The guide's text content is licensed separately under
+This license covers the build pipeline only (*.py, *.css — including
+guide/style.css and provenance/style_v1_original.css — and the .github/
+workflows). The guide's text content is licensed separately under
 CC BY-NC-SA 4.0 — see LICENSE. Bundled fonts carry their own licenses — see
-guide/fonts/*/LICENSE.txt.
+guide/fonts/vazirmatn/LICENSE.txt, guide/fonts/texgyretermes-LICENSE.txt,
+and guide/fonts/fa-solid-LICENSE.txt.
